@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #проверка набора аргументов
-if [$# -ne 2]; then
+if [[ $# -ne 2 ]]; then
 	echo "Usage: $0 <input_dir> <output_dir>" 
 	exit 1
 fi
@@ -30,16 +30,22 @@ find "$input_dir" -type_f | while IFS= read -r file; do
 	fi
 
  	#проверка доступа
-	if [ ! -r "$file" ]; then
+	if [[ ! -r "$file" ]]; then
 		echo "Skip file without access: $file"
 		continue
 	fi
+
+	#проверка на скрытость
+ 	if [[ -L "$file" ]]; then
+        	echo "Skip linkFile: $file"
+        	continue
+    	fi
 
  	#проверка на одинаковость имен и создание нового имени
 	bn=$(basename "$file")
 	dest="$output_dir$bn"
 	count=1
-	while [ -e "$dest"]; do
+	while [[ -e "$dest" ]]; do
 		dest="$output_dir${bn%.*}$count.${bn##*.}" 
 		count=$((count+1))
 	done
