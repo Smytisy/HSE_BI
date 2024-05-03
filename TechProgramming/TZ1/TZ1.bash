@@ -35,7 +35,7 @@ find "$input_dir" -type_f | while IFS= read -r file; do
 		continue
 	fi
 
-	#проверка на скрытость
+	#проверка является ли файл ссылкой
  	if [[ -L "$file" ]]; then
         	echo "Skip linkFile: $file"
         	continue
