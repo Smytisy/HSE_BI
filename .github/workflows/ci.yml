@@ -24,6 +24,7 @@ jobs:
 
     - name: Make gradlew executable
       run: chmod +x ./gradlew
+      working-directory: TechProgramming/TZ2
 
     - name: Build with Gradle
       run: ./gradlew build
