@@ -36,10 +36,16 @@ jobs:
     
     - name: Notify success
       if: success()
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        CHAT_ID: ${{ secrets.CHAT_ID }}
       run: |
-        curl -s -X POST https://api.telegram.org/bot${{ secrets.7044570331:AAGErYTK56xlWYy-S9gg4Ml27IRuRtvrDuc }}/sendMessage -d chat_id=${{ secrets.378193879 }} -d text="✅ Все ок. Все тесты прошли успешно."
+        curl -s -X POST https://api.telegram.org/bot${{ env.TELEGRAM_BOT_TOKEN }}/sendMessage -d chat_id=${{ env.CHAT_ID }} -d text="✅ Все ок. Все тесты прошли успешно."
 
     - name: Notify failure
       if: failure()
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        CHAT_ID: ${{ secrets.CHAT_ID }}
       run: |
-        curl -s -X POST https://api.telegram.org/bot${{ secrets.7044570331:AAGErYTK56xlWYy-S9gg4Ml27IRuRtvrDuc }}/sendMessage -d chat_id=${{ secrets.378193879 }} -d text="❌ Некоторые тесты не пройдены. Пожалуйста, проверьте логи."
+        curl -s -X POST https://api.telegram.org/bot${{ env.TELEGRAM_BOT_TOKEN }}/sendMessage -d chat_id=${{ env.CHAT_ID }} -d text="❌ Некоторые тесты не пройдены. Пожалуйста, проверьте логи."
