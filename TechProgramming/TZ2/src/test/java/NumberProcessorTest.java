@@ -70,6 +70,6 @@ public class NumberProcessorTest {
         assertEquals(new BigInteger("-1"), NumberProcessor._min(numbers));
         assertEquals(new BigInteger("1"), NumberProcessor._max(numbers));
         assertEquals(new BigInteger("0"), NumberProcessor._sum(numbers));
-        assertEquals(new BigInteger("0"), NumberProcessor._mult(numbers));
+        assertEquals(new BigInteger("1"), NumberProcessor._mult(numbers));
     }
 }
