@@ -1,11 +1,10 @@
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.cicd.NumberProcessor;
-import org.junit.jupiter.api.Timeout;
 
+import java.io.IOException;
 import java.util.*;
 import java.math.BigInteger;
 
@@ -77,5 +76,80 @@ public class NumberProcessorTest {
         assertEquals(new BigInteger("1"), NumberProcessor.max(numbers));
         assertEquals(new BigInteger("0"), NumberProcessor.sum(numbers));
         assertEquals(new BigInteger("0"), NumberProcessor.mult(numbers), "should be 0");
+    }
+
+    @Nested
+    class forYou {
+
+        private List<BigInteger> numbers;
+
+        @BeforeEach
+        void setUp() {
+            numbers = Arrays.asList(
+                    new BigInteger("1"),
+                    new BigInteger("4"),
+                    new BigInteger("2"),
+                    new BigInteger("3")
+            );
+        }
+
+        @Test
+        void testMin() {
+            // given
+            List<BigInteger> testNumbers = new ArrayList<>(numbers);
+
+            // when
+            BigInteger result = NumberProcessor.min(testNumbers);
+
+            // then
+            assertEquals(new BigInteger("1"), result);
+        }
+
+        @Test
+        void testMax() {
+            // given
+            List<BigInteger> testNumbers = new ArrayList<>(numbers);
+
+            // when
+            BigInteger result = NumberProcessor.max(testNumbers);
+
+            // then
+            assertEquals(new BigInteger("4"), result);
+        }
+
+        @Test
+        void testSum() {
+            // given
+            List<BigInteger> testNumbers = new ArrayList<>(numbers);
+
+            // when
+            BigInteger result = NumberProcessor.sum(testNumbers);
+
+            // then
+            assertEquals(new BigInteger("10"), result);
+        }
+
+        @Test
+        void testMult() {
+            // given
+            List<BigInteger> testNumbers = new ArrayList<>(numbers);
+
+            // when
+            BigInteger result = NumberProcessor.mult(testNumbers);
+
+            // then
+            assertEquals(new BigInteger("24"), result);
+        }
+
+        @Test
+        void testReadNumbersFromFileException() {
+            // given
+            String invalidFilename = "./invalid/path/numbers.txt";
+
+            // when & then
+            assertThrows(IOException.class, () -> {
+                NumberProcessor.readNumbersFromFile(invalidFilename);
+            });
+        }
     }
 }
