@@ -3,9 +3,7 @@
 
 ![Java CI](https://github.com/Smytisy/HSE_BI/actions/workflows/ci.yml/badge.svg)
 
-This project reads numbers from a file, finds the minimum, maximum, sum, and product of these numbers, and generates performance charts using JFreeChart.
-
-...
+Этот проект считывает числа из файла, находит минимум, максимум, сумму и произведение этих чисел и создает диаграммы производительности с помощью JFreeChart.
 
 
 
