@@ -30,10 +30,11 @@ jobs:
       run: ./gradlew build
       working-directory: TechProgramming/TZ2
 
-    - name: Run tests
-      run: ./gradlew test
+    - name: Run tests and capture output
+      id: run-tests
+      run: ./gradlew test 2>&1 | tee test-results.txt
       working-directory: TechProgramming/TZ2
-    
+
     - name: Notify success
       if: success()
       env:
@@ -48,4 +49,5 @@ jobs:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         CHAT_ID: ${{ secrets.CHAT_ID }}
       run: |
-        curl -s -X POST https://api.telegram.org/bot${{ env.TELEGRAM_BOT_TOKEN }}/sendMessage -d chat_id=${{ env.CHAT_ID }} -d text="❌ Некоторые тесты не пройдены. Пожалуйста, проверьте логи."
+        TEST_RESULTS=$(cat TechProgramming/TZ2/test-results.txt)
+        curl -s -X POST https://api.telegram.org/bot${{ env.TELEGRAM_BOT_TOKEN }}/sendMessage -d chat_id=${{ env.CHAT_ID }} -d text="❌ Некоторые тесты не пройдены. Пожалуйста, проверьте логи. \n\n${TEST_RESULTS}"
