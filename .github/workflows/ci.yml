@@ -30,16 +30,16 @@ jobs:
       run: ./gradlew test
       working-directory: TechProgramming/TZ2
 
-    - name: Notify success
-      if: success()
-      run: curl -s -X POST https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage -d chat_id=$CHAT_ID -d text="All tests passed successfully."
-      env:
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        CHAT_ID: ${{ secrets.CHAT_ID }}
+    # - name: Notify success
+    #   if: success()
+    #   run: curl -s -X POST https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage -d chat_id=$CHAT_ID -d text="All tests passed successfully."
+    #   env:
+    #     TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+    #     CHAT_ID: ${{ secrets.CHAT_ID }}
 
-    - name: Notify failure
-      if: failure()
-      run: curl -s -X POST https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage -d chat_id=$CHAT_ID -d text="Some tests failed. Please check the logs."
-      env:
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-        CHAT_ID: ${{ secrets.CHAT_ID }}
+    # - name: Notify failure
+    #   if: failure()
+    #   run: curl -s -X POST https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage -d chat_id=$CHAT_ID -d text="Some tests failed. Please check the logs."
+    #   env:
+    #     TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+    #     CHAT_ID: ${{ secrets.CHAT_ID }}
