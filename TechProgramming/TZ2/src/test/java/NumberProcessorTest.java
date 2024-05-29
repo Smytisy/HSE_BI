@@ -8,6 +8,7 @@ import java.math.BigInteger;
 
 public class NumberProcessorTest {
 
+    // Testing correct working function
     @Test
     public void testMin() {
         List<BigInteger> numbers = Arrays.asList(new BigInteger("1"), new BigInteger("4"), new BigInteger("2"), new BigInteger("3"));
@@ -32,6 +33,8 @@ public class NumberProcessorTest {
         assertEquals(new BigInteger("24"), NumberProcessor._mult(numbers));
     }
 
+
+    // Test check time working
     @Test
     public void testPerformance() {
         List<BigInteger> numbers = new ArrayList<>();
@@ -60,6 +63,7 @@ public class NumberProcessorTest {
         System.out.println("Mult performance: " + (endTime - startTime) + " ms");
     }
 
+    // Any other test
     @Test
     public void testEdgeCase() {
         List<BigInteger> numbers = Arrays.asList(new BigInteger("0"), new BigInteger("-1"), new BigInteger("1"));

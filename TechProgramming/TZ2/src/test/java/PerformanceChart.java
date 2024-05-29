@@ -18,6 +18,7 @@ import java.util.Random;
 
 public class PerformanceChart extends ApplicationFrame {
 
+    // Plot the dependence of execution time on the number of numbers in the file
     public PerformanceChart(String applicationTitle, String chartTitle) {
         super(applicationTitle);
         JFreeChart xylineChart = ChartFactory.createXYLineChart(
@@ -70,7 +71,7 @@ public class PerformanceChart extends ApplicationFrame {
         dataset.addSeries(minSeries);
         dataset.addSeries(maxSeries);
         dataset.addSeries(sumSeries);
-        dataset.addSeries(multSeries);
+        //dataset.addSeries(multSeries);
 
         return dataset;
     }

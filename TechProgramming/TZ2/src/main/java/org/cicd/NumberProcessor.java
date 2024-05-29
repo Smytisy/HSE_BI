@@ -14,7 +14,7 @@ import java.util.List;
 import org.cicd.*;
 public class NumberProcessor {
 
-    public static List<BigInteger> readNumbersFromFile(String filename) throws IOException {
+    public static List<BigInteger> readNumbersFromFile(String filename) throws IOException {        // Realization function read from file and find min, max, sum, multi
         List<BigInteger> numbers = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new FileReader(filename));
         String line = reader.readLine();
