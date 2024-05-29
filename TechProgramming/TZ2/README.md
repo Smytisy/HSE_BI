@@ -5,8 +5,34 @@
 
 Этот проект считывает числа из файла, находит минимум, максимум, сумму и произведение этих чисел и создает диаграммы производительности с помощью JFreeChart.
 
-### Вот так выглядит график зависимости времени выполнения от количества рандомно сгенерирорванных элементов 
+## Requirements
+
+- Java 11 or higher
+- Gradle
+
+## How to Run
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
+
+2. Build the project:
+   ```sh
+   ./gradlew build
+   
+4. Run the application:
+   ```sh
+   ./gradlew run
+
+
+
+
+
+#### Вот так выглядит график зависимости времени выполнения от количества рандомно сгенерирорванных элементов 
 ![image](https://github.com/Smytisy/HSE_BI/assets/56611728/aad987c6-e816-4e63-9077-b29250c20556)
+
+
 
 
 
