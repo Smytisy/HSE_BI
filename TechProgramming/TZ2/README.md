@@ -1,3 +1,16 @@
+
+# Performance Chart Project
+
+![Java CI](https://github.com/Smytisy/HSE_BI/actions/workflows/ci.yml/badge.svg)
+
+This project reads numbers from a file, finds the minimum, maximum, sum, and product of these numbers, and generates performance charts using JFreeChart.
+
+...
+
+
+
+
+
 ## Техническое задание №2 (ТЗ2)
 
 **Добавляем тесты и разворачиваем простейший CI/CD**
