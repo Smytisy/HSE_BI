@@ -4,14 +4,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigInteger;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.cicd.*;
 public class NumberProcessor {
 
     public static List<BigInteger> readNumbersFromFile(String filename) throws IOException {        // Realization function read from file and find min, max, sum, multi
@@ -28,15 +24,15 @@ public class NumberProcessor {
         return numbers;
     }
 
-    public static BigInteger _min(List<BigInteger> numbers) {
+    public static BigInteger min(List<BigInteger> numbers) {
         return Collections.min(numbers);
     }
 
-    public static BigInteger _max(List<BigInteger> numbers) {
+    public static BigInteger max(List<BigInteger> numbers) {
         return Collections.max(numbers);
     }
 
-    public static BigInteger _sum(List<BigInteger> numbers) {
+    public static BigInteger sum(List<BigInteger> numbers) {
         BigInteger sum = BigInteger.ZERO;
         for (BigInteger number : numbers) {
             sum = sum.add(number);
@@ -44,7 +40,7 @@ public class NumberProcessor {
         return sum;
     }
 
-    public static BigInteger _mult(List<BigInteger> numbers) {
+    public static BigInteger mult(List<BigInteger> numbers) {
         BigInteger product = BigInteger.ONE;
         for (BigInteger number : numbers) {
             product = product.multiply(number);
@@ -55,10 +51,10 @@ public class NumberProcessor {
     public static void main(String[] args) {
         try {
             List<BigInteger> numbers = readNumbersFromFile("./src/main/java/org/cicd/numbers.txt");
-            System.out.println("Min: " + _min(numbers));
-            System.out.println("Max: " + _max(numbers));
-            System.out.println("Sum: " + _sum(numbers));
-            System.out.println("Multi: " + _mult(numbers));
+            System.out.println("Min: " + min(numbers));
+            System.out.println("Max: " + max(numbers));
+            System.out.println("Sum: " + sum(numbers));
+            System.out.println("Multi: " + mult(numbers));
         } catch (IOException e) {
             e.printStackTrace();
         }

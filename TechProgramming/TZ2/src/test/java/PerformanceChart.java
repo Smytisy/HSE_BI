@@ -47,17 +47,17 @@ public class PerformanceChart extends ApplicationFrame {
             List<BigInteger> numbers = generateRandomNumbers(n);
 
             long startTime = System.currentTimeMillis();
-            NumberProcessor._min(numbers);
+            NumberProcessor.min(numbers);
             long endTime = System.currentTimeMillis();
             minSeries.add(n, endTime - startTime);
 
             startTime = System.currentTimeMillis();
-            NumberProcessor._max(numbers);
+            NumberProcessor.max(numbers);
             endTime = System.currentTimeMillis();
             maxSeries.add(n, endTime - startTime);
 
             startTime = System.currentTimeMillis();
-            NumberProcessor._sum(numbers);
+            NumberProcessor.sum(numbers);
             endTime = System.currentTimeMillis();
             sumSeries.add(n, endTime - startTime);
 
