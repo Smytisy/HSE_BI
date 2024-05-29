@@ -1,4 +1,5 @@
 
+import static java.time.Duration.ofSeconds;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
@@ -149,6 +150,18 @@ public class NumberProcessorTest {
             // when & then
             assertThrows(IOException.class, () -> {
                 NumberProcessor.readNumbersFromFile(invalidFilename);
+            });
+        }
+
+        @Test
+        void testSumTimeout() {
+            // given
+            List<BigInteger> testNumbers = new ArrayList<>(numbers);
+
+            // when & then
+            assertTimeoutPreemptively(ofSeconds(1), () -> {
+                BigInteger result = NumberProcessor.sum(testNumbers);
+                assertEquals(new BigInteger("10"), result);
             });
         }
     }
