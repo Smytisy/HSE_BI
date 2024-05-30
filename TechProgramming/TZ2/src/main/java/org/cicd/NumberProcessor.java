@@ -36,6 +36,7 @@ public class NumberProcessor {
         BigInteger sum = BigInteger.ZERO;
         for (BigInteger number : numbers) {
             sum = sum.add(number);
+
         }
         return sum;
     }
@@ -44,6 +45,10 @@ public class NumberProcessor {
         BigInteger product = BigInteger.ONE;
         for (BigInteger number : numbers) {
             product = product.multiply(number);
+            // Проверка на переполнение
+            if (product.compareTo(BigInteger.valueOf(Long.MAX_VALUE)) > 0) {
+                throw new ArithmeticException("Overflow");
+            }
         }
         return product;
     }

@@ -164,5 +164,20 @@ public class NumberProcessorTest {
                 assertEquals(new BigInteger("10"), result);
             });
         }
+
+
+        @Test
+        public void testExceptionForLargeNumbers() {
+            // given
+            List<BigInteger> largeNumbers = new ArrayList<>();
+            largeNumbers.add(new BigInteger("9223372036854775807")); // Long.MAX_VALUE
+            largeNumbers.add(new BigInteger("2"));
+
+            // when & then
+            assertThrows(ArithmeticException.class, () -> {
+                NumberProcessor.mult(largeNumbers);
+            });
+        }
+
     }
 }
