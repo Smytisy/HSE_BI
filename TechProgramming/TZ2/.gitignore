@@ -1,34 +1,25 @@
-# Project exclude paths
-
-
-## Java
-##############################
-.mtj.tmp/
+# Java
 *.class
+
+# Package Files #
 *.jar
 *.war
 *.ear
-*.nar
-hs_err_pid*
-replay_pid*
 
-##############################
-## Gradle
-##############################
-bin/
+# Gradle
+.gradle/
 build/
-.gradle
-.gradletasknamecache
-gradle-app.setting
-!gradle-wrapper.jar
 
-##############################
-## IntelliJ
-##############################
-out/
+# IntelliJ IDEA
 .idea/
-TechProgramming/TZ2/.idea/
-.idea_modules/
 *.iml
-*.ipr
 *.iws
+*.ipr
+
+# macOS
+.DS_Store
+
+# Eclipse
+.metadata
+.classpath
+.project
