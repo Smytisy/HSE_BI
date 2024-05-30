@@ -27,6 +27,7 @@ gradle-app.setting
 ##############################
 out/
 .idea/
+TechProgramming/TZ2/.idea/
 .idea_modules/
 *.iml
 *.ipr
